@@ -83,7 +83,7 @@ export async function handler(event, context) {
 
     return {
       statusCode: 200,
-      body: JSON.stringify({ msg: uri })
+      body: JSON.stringify({ msg: 'scooop' })
     }
   } catch (err) {
     console.log(err) // output to netlify function log
