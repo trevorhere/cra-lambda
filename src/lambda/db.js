@@ -4,7 +4,7 @@ import mongoose from 'mongoose'
 require('dotenv').config()
 
 // Initialize connection to database
-const dbUrl = "mongodb+srv://admin:"+ process.env.DB_PASS +"@cluster0-mcmuo.mongodb.net/test?retryWrites=true&w=majority";
+const dbUrl = "mongodb+srv://admin:" + process.env.DB_PASS + "@cluster0-mcmuo.mongodb.net/test?retryWrites=true&w=majority";
 const dbOptions = {
         useNewUrlParser: true,
         useFindAndModify: false

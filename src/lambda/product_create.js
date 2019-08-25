@@ -54,10 +54,11 @@ const MongoClient = require('mongodb').MongoClient;
 
 require('dotenv').config();
 
-const uri = "mongodb+srv://admin:"+ process.env.DB_PASSWORD +"@cluster0-mcmuo.mongodb.net/test?retryWrites=true&w=majority";
+const uri = "mongodb+srv://admin:" + process.env.DB_PASSWORD + "@cluster0-mcmuo.mongodb.net/test?retryWrites=true&w=majority";
 
 
 export async function handler(event, context) {
+
   try {
 
     console.log('test1', JSON.parse(event.body))
@@ -82,7 +83,7 @@ export async function handler(event, context) {
 
     return {
       statusCode: 200,
-      body: JSON.stringify({ msg: 'test' })
+      body: JSON.stringify({ msg: uri })
     }
   } catch (err) {
     console.log(err) // output to netlify function log
