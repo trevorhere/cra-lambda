@@ -12,7 +12,22 @@ class LambdaDemo extends Component {
     e.preventDefault()
 
     this.setState({ loading: true })
-    fetch("/.netlify/functions/" + api)
+
+    // fetch(url, {
+    //   method: "POST",
+    //   body: JSON.stringify(data),
+    //   headers: {
+    //     "Content-Type": "application/json"
+    //   },
+
+
+    fetch("/.netlify/functions/" + api, { 
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({msg: 'NEW NAME'})
+      })
       .then(response => response.json())
       .then(json => this.setState({ loading: false, msg: json.msg }))
   }
@@ -24,6 +39,9 @@ class LambdaDemo extends Component {
       <p>
         <button onClick={this.handleClick("hello")}>{loading ? "Loading..." : "Call Lambda"}</button>
         <button onClick={this.handleClick("async-dadjoke")}>{loading ? "Loading..." : "Call Async Lambda"}</button>
+        <button onClick={this.handleClick("product_create")}>{loading ? "Loading..." : "Add Product"}</button>
+
+        
         <br />
         <span>{msg}</span>
       </p>
